@@ -1,17 +1,20 @@
 import streamlit as st
-
+from dotenv import load_dotenv
+import os
 # from langchain_ollama import ChatOllama
 from langchain_core.globals import set_debug
 from langchain_groq import ChatGroq
 
-
+load_dotenv()
 set_debug(True)
+
+api_key = os.getenv("GROQ_API_KEY")
 
 st.title('Ask AI Anything')
 prompt = st.text_input("Enter a question: ")
 
 # llm = ChatOllama(model="llama3.2-vision:11b")
-llm = ChatGroq(model="llama3.2-vision:11b", api_key="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")
+llm = ChatGroq(model="llama3-70b-8192", api_key=api_key, temperature=0.3)
 
 if prompt:
     res = llm.invoke(prompt)
