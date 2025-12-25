@@ -14,7 +14,7 @@ st.title('Ask AI Anything')
 prompt = st.text_input("Enter a question: ")
 
 # llm = ChatOllama(model="llama3.2-vision:11b")
-llm = ChatGroq(model="llama3-70b-8192", api_key=api_key, temperature=0.3)
+llm = ChatGroq(model="allam-2-7b", api_key=api_key, temperature=0.3)
 
 if prompt:
     res = llm.invoke(prompt)
