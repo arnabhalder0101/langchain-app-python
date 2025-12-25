@@ -8,7 +8,7 @@ from langchain_core.globals import set_debug
 load_dotenv()
 set_debug(True)
 
-api_key = os.getenv("GROQ_API_KEY")
+# api_key = os.getenv("GROQ_API_KEY")
 
 st.title('Ask AI Anything')
 prompt = st.text_input("Enter a question: ")
