@@ -1,11 +1,10 @@
 import streamlit as st
-from dotenv import load_dotenv
-import os
+
 from langchain_ollama import ChatOllama
 from langchain_core.globals import set_debug
 # from langchain_groq import ChatGroq
 
-load_dotenv()
+
 set_debug(True)
 
 # api_key = os.getenv("GROQ_API_KEY")
