@@ -16,8 +16,6 @@ button = st.button("Run")
 llm = ChatOllama(model="llama3.2-vision:11b")
 
 
-
-
 template = PromptTemplate(
     input_variables=["city","month", "language", "budget"],
     template="""
@@ -33,15 +31,15 @@ template = PromptTemplate(
             """
 )
 
-
+chain = template | llm
 
 if button:
-    res = llm.invoke(template.format(
-        city=city,
-        budget=budget,
-        language=language,
-        month=month
-    ))
+    res = chain.invoke({
+        "city":city,
+        "budget":budget,
+        "language":language,
+        "month":month
+    })
     st.write(res.content)
 
 
